@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sonkyou x sou diamond - 申し込みフォーム</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+      
+      body {
+        font-family: 'Noto Serif JP', 'Playfair Display', serif;
+        background-image: url('images/background.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        position: relative;
+      }
+      
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(1px);
+        z-index: -1;
+      }
+
+      .form-container {
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        max-width: 500px;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #2c2c2c;
+        margin-bottom: 35px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        font-size: 28px;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .field-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: #444;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+      }
+
+      .required {
+        color: #d93025;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+        width: 100%;
+        padding: 14px 16px;
+        box-sizing: border-box;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        font-size: 15px;
+        font-family: 'Noto Serif JP', serif;
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+      }
+      
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #8B4513;
+        box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        background-color: rgba(255, 255, 255, 1);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .radio-group {
+        margin-top: 10px;
+      }
+
+      .radio-option {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .radio-option input[type="radio"] {
+        margin-right: 8px;
+      }
+
+      .radio-option label {
+        font-weight: 400;
+        margin-bottom: 0;
+        cursor: pointer;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #8B4513, #A0522D);
+        color: #fff;
+        padding: 16px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1px;
+        margin-top: 25px;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+      }
+
+      .submit-btn:hover {
+        background: linear-gradient(135deg, #A0522D, #8B4513);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+      }
+
+      .submit-btn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .success-message {
+        display: none;
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border-radius: 4px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .info-message {
+        background-color: #e7f3ff;
+        color: #0066cc;
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .form-data {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 4px;
+        margin: 15px 0;
+        font-size: 14px;
+      }
+
+      .form-data h3 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      .form-data p {
+        margin: 5px 0;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+          background-position: left;
+        }
+
+        .form-container {
+          backdrop-filter: blur(0px);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>sonkyou <br />× <br />sou diamond</h2>
+      <form
+        id="localForm"
+        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScPg8va_CksiuQdjyDf4o7tKkN5rTu7bY_2AsftAUp9KoDfrQ/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="submitted=true"
+      >
+        <div class="field-group">
+          <label for="fullName"
+            >お名前（フルネーム） <span class="required">*</span></label
+          >
+          <input
+            type="text"
+            id="fullName"
+            name="entry.2092238618"
+            required
+            placeholder="回答を入力"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="phone">電話番号 <span class="required">*</span></label>
+          <input
+            type="tel"
+            id="phone"
+            name="entry.479301265"
+            required
+            placeholder="回答を入力"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="email"
+            >メールアドレス <span class="required">*</span></label
+          >
+          <input
+            type="email"
+            id="email"
+            name="entry.1556369182"
+            required
+            placeholder="回答を入力"
+          />
+        </div>
+
+        <div class="field-group">
+          <label for="designItems">お持ちのSON KYOUデザインアイテム</label>
+          <textarea
+            id="designItems"
+            name="entry.1753222212"
+            placeholder="回答を入力"
+          ></textarea>
+        </div>
+
+        <div class="field-group">
+          <label>ご来場日時 <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="time1"
+                name="entry.588393791"
+                value="Jewelryご購入者様 13:00‐13:00"
+                required
+              />
+              <label for="time1">Jewelryご購入者様 13:00‐13:00</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="time2"
+                name="entry.588393791"
+                value="Jewelryご購入者様 13:45‐14:15"
+                required
+              />
+              <label for="time2">Jewelryご購入者様 13:45‐14:15</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="time3"
+                name="entry.588393791"
+                value="Jewelryご購入者様 14:30‐15:00"
+                required
+              />
+              <label for="time3">Jewelryご購入者様 14:30‐15:00</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="time4"
+                name="entry.588393791"
+                value="Jewelryご検討の方 16:00-17:00"
+                required
+              />
+              <label for="time4">Jewelryご検討の方 16:00-17:00</label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          送信
+        </button>
+      </form>
+
+      <script type="text/javascript">
+        let submitted = false;
+      </script>
+      <iframe
+          name="hidden_iframe"
+          id="hidden_iframe"
+          style="display: none"
+          onload="if(submitted){window.location='thanks.html';}"
+      ></iframe>
+  </body>
+</html>
