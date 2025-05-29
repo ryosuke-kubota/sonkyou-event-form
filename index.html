@@ -320,6 +320,35 @@
 
       <script type="text/javascript">
         let submitted = false;
+        
+        // フォーム送信時の二重クリック防止
+        document.addEventListener('DOMContentLoaded', function() {
+          const form = document.getElementById('localForm');
+          const submitBtn = document.getElementById('submitBtn');
+          const originalText = submitBtn.textContent;
+          
+          form.addEventListener('submit', function(e) {
+            // ボタンを無効化
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+            submitBtn.style.background = '#ccc';
+            submitBtn.style.cursor = 'not-allowed';
+            submitBtn.style.transform = 'none';
+            submitBtn.style.boxShadow = 'none';
+            
+            // 送信フラグを設定
+            submitted = true;
+          });
+          
+          // エラーが発生した場合にボタンを再有効化する関数
+          window.resetSubmitButton = function() {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = 'linear-gradient(135deg, #8B4513, #A0522D)';
+            submitBtn.style.cursor = 'pointer';
+            submitted = false;
+          };
+        });
       </script>
       <iframe
           name="hidden_iframe"
