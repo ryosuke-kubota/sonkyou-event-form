@@ -26,7 +26,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('images/background.png');
+        background-image: url('images/background.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -102,6 +102,14 @@
       textarea {
         resize: vertical;
         min-height: 80px;
+      }
+
+      .field-note {
+        margin: 8px 0 0;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+        letter-spacing: 0.3px;
       }
 
       .radio-group {
@@ -259,71 +267,77 @@
         </div>
 
         <div class="field-group">
-          <label for="designItems">お持ちのSON KYOUデザインアイテム</label>
+          <label for="companionName">同伴者お名前</label>
+          <input
+            type="text"
+            id="companionName"
+            name="entry.COMPANION_NAME_ID"
+            placeholder="回答を入力"
+          />
+          <p class="field-note">※同伴者が複数名いらっしゃる場合は、備考欄にご入力いただく形でお願いします。</p>
+        </div>
+
+        <div class="field-group">
+          <label for="ownedItems">お持ちのSOU DIAMOND／孫きょうデザインアイテム</label>
           <textarea
-            id="designItems"
+            id="ownedItems"
             name="entry.1753222212"
             placeholder="回答を入力"
           ></textarea>
         </div>
 
         <div class="field-group">
-          <label>6/28(土)ご来場時間 <span class="required">*</span></label>
+          <label for="interestedItems">気になるアイテム、またはご覧になりたいアイテム</label>
+          <textarea
+            id="interestedItems"
+            name="entry.INTERESTED_ITEMS_ID"
+            placeholder="回答を入力"
+          ></textarea>
+        </div>
+
+        <div class="field-group">
+          <label>ジュエリーのご購入予定 <span class="required">*</span></label>
           <div class="radio-group">
             <div class="radio-option">
               <input
                 type="radio"
-                id="time1"
-                name="entry.588393791"
-                value="Jewelryご購入者様 13:00〜13:30"
+                id="purchaseYes"
+                name="entry.PURCHASE_PLAN_ID"
+                value="はい"
                 required
-                disabled
               />
-              <label for="time1"><span style="text-decoration: line-through;">Jewelryご購入者様 13:00〜13:30</span> 満席</label>
+              <label for="purchaseYes">はい</label>
             </div>
             <div class="radio-option">
               <input
                 type="radio"
-                id="time2"
-                name="entry.588393791"
-                value="Jewelryご購入者様 13:45〜14:15"
+                id="purchaseConsidering"
+                name="entry.PURCHASE_PLAN_ID"
+                value="検討中"
                 required
-                disabled
               />
-              <label for="time2"><span style="text-decoration: line-through;">Jewelryご購入者様 13:45〜14:15</span> 満席</label>
+              <label for="purchaseConsidering">検討中</label>
             </div>
             <div class="radio-option">
               <input
                 type="radio"
-                id="time3"
-                name="entry.588393791"
-                value="Jewelryご購入者様 14:30〜15:00"
-                required
-                disabled
-              />
-              <label for="time3"><span style="text-decoration: line-through;">Jewelryご購入者様 14:30〜15:00</span> 満席</label>
-            </div>
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="time5"
-                name="entry.588393791"
-                value="Jewelryご購入者様 15:30〜16:00"
+                id="purchaseUndecided"
+                name="entry.PURCHASE_PLAN_ID"
+                value="未定"
                 required
               />
-              <label for="time5">Jewelryご購入者様 15:30〜16:00</label>
-            </div>
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="time4"
-                name="entry.588393791"
-                value="Jewelryご検討の方 16:00〜17:00"
-                required
-              />
-              <label for="time4">Jewelryご検討の方 16:00〜17:00</label>
+              <label for="purchaseUndecided">未定</label>
             </div>
           </div>
+        </div>
+
+        <div class="field-group">
+          <label for="notes">備考欄</label>
+          <textarea
+            id="notes"
+            name="entry.NOTES_ID"
+            placeholder="回答を入力"
+          ></textarea>
         </div>
 
         <button type="submit" class="submit-btn" id="submitBtn">
