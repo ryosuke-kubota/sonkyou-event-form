@@ -26,7 +26,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('images/background.png');
+        background-image: url('images/background.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -104,8 +104,150 @@
         min-height: 80px;
       }
 
+      .field-note {
+        margin: 8px 0 0;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+        letter-spacing: 0.3px;
+      }
+
+      .info-block {
+        background-color: rgba(255, 255, 255, 0.55);
+        border-radius: 6px;
+        padding: 16px 18px;
+        margin-bottom: 28px;
+        font-size: 14px;
+        color: #3a3a3a;
+        line-height: 1.7;
+        letter-spacing: 0.3px;
+      }
+
+      .info-block h3 {
+        margin: 0 0 10px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #2c2c2c;
+        letter-spacing: 0.5px;
+      }
+
+      .info-block ul {
+        margin: 0;
+        padding-left: 1.1em;
+      }
+
+      .info-block li {
+        margin-bottom: 6px;
+      }
+
+      .info-block li:last-child {
+        margin-bottom: 0;
+      }
+
+      .info-block a {
+        color: #8B4513;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.4);
+      }
+
+      .info-block a:hover {
+        border-bottom-color: #8B4513;
+      }
+
+      .closing-message {
+        margin: 28px 0 0;
+        text-align: center;
+        font-size: 14px;
+        color: #3a3a3a;
+        line-height: 1.7;
+        letter-spacing: 0.4px;
+      }
+
+      .contact-block {
+        margin-top: 18px;
+        text-align: center;
+        font-size: 13px;
+        color: #444;
+        letter-spacing: 0.3px;
+      }
+
+      .contact-block .contact-label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 500;
+        color: #2c2c2c;
+      }
+
+      .contact-block a {
+        color: #8B4513;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(139, 69, 19, 0.4);
+      }
+
+      .contact-block a:hover {
+        border-bottom-color: #8B4513;
+      }
+
       .radio-group {
         margin-top: 10px;
+      }
+
+      .visit-time-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .visit-time-option {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 12px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border: 2px solid rgba(139, 69, 19, 0.2);
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c2c2c;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .visit-time-option:hover {
+        border-color: #A0522D;
+        background-color: rgba(255, 255, 255, 1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 10px rgba(139, 69, 19, 0.15);
+      }
+
+      .visit-time-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .visit-time-option:has(input[type="radio"]:checked) {
+        border-color: #8B4513;
+        background: linear-gradient(135deg, rgba(139, 69, 19, 0.08), rgba(160, 82, 45, 0.12));
+        color: #8B4513;
+        box-shadow: 0 4px 14px rgba(139, 69, 19, 0.2);
+      }
+
+      .visit-time-option:focus-within {
+        outline: none;
+        border-color: #8B4513;
+        box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+      }
+
+      @media (max-width: 480px) {
+        .visit-time-options {
+          grid-template-columns: 1fr;
+        }
       }
 
       .radio-option {
@@ -214,9 +356,19 @@
   <body>
     <div class="form-container">
       <h2>sonkyou <br />× <br />sou diamond</h2>
+
+      <div class="info-block" aria-labelledby="event-info-heading">
+        <h3 id="event-info-heading">イベントについて</h3>
+        <ul>
+          <li>当日は各時間になり次第、お申し込み順でのご案内・ご入場となります。</li>
+          <li>Vintage shopのお支払いは、現金またはPayPayとなります。</li>
+          <li>Vintage shopでのお買い物をご予定の方は、エコバッグのご持参をお願いいたします。</li>
+        </ul>
+      </div>
+
       <form
         id="localForm"
-        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScPg8va_CksiuQdjyDf4o7tKkN5rTu7bY_2AsftAUp9KoDfrQ/formResponse"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSezyztAWt2f-Q0Cfsyh0drAIIat78eBZEtqQvaRLvdp7zm6-A/formResponse"
         method="POST"
         target="hidden_iframe"
         onsubmit="submitted=true"
@@ -228,7 +380,7 @@
           <input
             type="text"
             id="fullName"
-            name="entry.2092238618"
+            name="entry.1735863803"
             required
             placeholder="回答を入力"
           />
@@ -239,7 +391,7 @@
           <input
             type="tel"
             id="phone"
-            name="entry.479301265"
+            name="entry.2049514159"
             required
             placeholder="回答を入力"
           />
@@ -252,84 +404,141 @@
           <input
             type="email"
             id="email"
-            name="entry.1556369182"
+            name="entry.101001268"
             required
             placeholder="回答を入力"
           />
         </div>
 
         <div class="field-group">
-          <label for="designItems">お持ちのSON KYOUデザインアイテム</label>
+          <label for="companionName">同伴者お名前</label>
+          <input
+            type="text"
+            id="companionName"
+            name="entry.1930022071"
+            placeholder="回答を入力"
+          />
+          <p class="field-note">※同伴者が複数名いらっしゃる場合は、備考欄にご入力いただく形でお願いします。</p>
+        </div>
+
+        <div class="field-group">
+          <label>ご来場時間 <span class="required">*</span></label>
+          <p class="field-note" style="margin: 0 0 4px;">ご希望のご来場時間をお選びください。</p>
+          <div class="visit-time-options" role="radiogroup" aria-label="ご来場時間">
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="12:00 - 13:00"
+                required
+              />
+              <span>12:00 - 13:00</span>
+            </label>
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="13:00 - 14:00"
+                required
+              />
+              <span>13:00 - 14:00</span>
+            </label>
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="15:00 - 16:00"
+                required
+              />
+              <span>15:00 - 16:00</span>
+            </label>
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="16:00 - 17:00"
+                required
+              />
+              <span>16:00 - 17:00</span>
+            </label>
+          </div>
+          <p class="field-note">※17:00〜19:00については、ご予約なしでもご入場いただけます。</p>
+        </div>
+
+        <div class="field-group">
+          <label for="ownedItems">お持ちのSOU DIAMOND／孫きょうデザインアイテム</label>
           <textarea
-            id="designItems"
-            name="entry.1753222212"
+            id="ownedItems"
+            name="entry.715491452"
             placeholder="回答を入力"
           ></textarea>
         </div>
 
         <div class="field-group">
-          <label>6/28(土)ご来場時間 <span class="required">*</span></label>
+          <label for="interestedItems">気になるアイテム、またはご覧になりたいアイテム</label>
+          <textarea
+            id="interestedItems"
+            name="entry.1284769192"
+            placeholder="回答を入力"
+          ></textarea>
+        </div>
+
+        <div class="field-group">
+          <label>ジュエリーのご購入予定 <span class="required">*</span></label>
           <div class="radio-group">
             <div class="radio-option">
               <input
                 type="radio"
-                id="time1"
-                name="entry.588393791"
-                value="Jewelryご購入者様 13:00〜13:30"
+                id="purchaseYes"
+                name="entry.1807178537"
+                value="はい"
                 required
-                disabled
               />
-              <label for="time1"><span style="text-decoration: line-through;">Jewelryご購入者様 13:00〜13:30</span> 満席</label>
+              <label for="purchaseYes">はい</label>
             </div>
             <div class="radio-option">
               <input
                 type="radio"
-                id="time2"
-                name="entry.588393791"
-                value="Jewelryご購入者様 13:45〜14:15"
+                id="purchaseConsidering"
+                name="entry.1807178537"
+                value="検討中"
                 required
-                disabled
               />
-              <label for="time2"><span style="text-decoration: line-through;">Jewelryご購入者様 13:45〜14:15</span> 満席</label>
+              <label for="purchaseConsidering">検討中</label>
             </div>
             <div class="radio-option">
               <input
                 type="radio"
-                id="time3"
-                name="entry.588393791"
-                value="Jewelryご購入者様 14:30〜15:00"
-                required
-                disabled
-              />
-              <label for="time3"><span style="text-decoration: line-through;">Jewelryご購入者様 14:30〜15:00</span> 満席</label>
-            </div>
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="time5"
-                name="entry.588393791"
-                value="Jewelryご購入者様 15:30〜16:00"
+                id="purchaseUndecided"
+                name="entry.1807178537"
+                value="未定"
                 required
               />
-              <label for="time5">Jewelryご購入者様 15:30〜16:00</label>
-            </div>
-            <div class="radio-option">
-              <input
-                type="radio"
-                id="time4"
-                name="entry.588393791"
-                value="Jewelryご検討の方 16:00〜17:00"
-                required
-              />
-              <label for="time4">Jewelryご検討の方 16:00〜17:00</label>
+              <label for="purchaseUndecided">未定</label>
             </div>
           </div>
         </div>
+
+        <div class="field-group">
+          <label for="notes">備考欄</label>
+          <textarea
+            id="notes"
+            name="entry.1234105758"
+            placeholder="回答を入力"
+          ></textarea>
+        </div>
+
+        <p class="closing-message">スタッフ一同、皆さまにお会いできますことを楽しみにしております。</p>
 
         <button type="submit" class="submit-btn" id="submitBtn">
           送信
         </button>
       </form>
+
+      <div class="contact-block">
+        <span class="contact-label">■イベントに関するお問い合わせ先</span>
+        <a href="mailto:info@soudiamond.com">info@soudiamond.com</a>
+      </div>
 
       <script type="text/javascript">
         let submitted = false;
