@@ -94,8 +94,8 @@
       input[type="tel"]:focus,
       textarea:focus {
         outline: none;
-        border-color: #8B4513;
-        box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        border-color: #3a3a3a;
+        box-shadow: 0 0 0 3px rgba(58, 58, 58, 0.12);
         background-color: rgba(255, 255, 255, 1);
       }
 
@@ -177,13 +177,14 @@
       }
 
       .info-block a {
-        color: #8B4513;
+        color: #3a3a3a;
         text-decoration: none;
-        border-bottom: 1px solid rgba(139, 69, 19, 0.4);
+        border-bottom: 1px solid rgba(58, 58, 58, 0.4);
       }
 
       .info-block a:hover {
-        border-bottom-color: #8B4513;
+        color: #1a1a1a;
+        border-bottom-color: #1a1a1a;
       }
 
       .closing-message {
@@ -221,25 +222,25 @@
         border-bottom-color: #1a1a1a;
       }
 
-      .radio-group {
-        margin-top: 10px;
-      }
-
-      .visit-time-options {
+      .option-cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin-top: 10px;
       }
 
-      .visit-time-option {
+      .option-cards.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .option-card {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 14px 12px;
         background-color: rgba(255, 255, 255, 0.85);
-        border: 2px solid rgba(139, 69, 19, 0.2);
+        border: 2px solid rgba(58, 58, 58, 0.2);
         border-radius: 10px;
         font-size: 16px;
         font-weight: 500;
@@ -251,54 +252,39 @@
         line-height: 1.3;
       }
 
-      .visit-time-option:hover {
-        border-color: #A0522D;
+      .option-card:hover {
+        border-color: #555;
         background-color: rgba(255, 255, 255, 1);
         transform: translateY(-1px);
-        box-shadow: 0 4px 10px rgba(139, 69, 19, 0.15);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
       }
 
-      .visit-time-option input[type="radio"] {
+      .option-card input[type="radio"] {
         position: absolute;
         opacity: 0;
         pointer-events: none;
       }
 
-      .visit-time-option:has(input[type="radio"]:checked) {
-        border-color: #8B4513;
-        background: linear-gradient(135deg, rgba(139, 69, 19, 0.08), rgba(160, 82, 45, 0.12));
-        color: #8B4513;
-        box-shadow: 0 4px 14px rgba(139, 69, 19, 0.2);
+      .option-card:has(input[type="radio"]:checked) {
+        border-color: #2c2c2c;
+        background: linear-gradient(135deg, rgba(58, 58, 58, 0.08), rgba(85, 85, 85, 0.14));
+        color: #2c2c2c;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
       }
 
-      .visit-time-option:focus-within {
+      .option-card:focus-within {
         outline: none;
-        border-color: #8B4513;
-        box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+        border-color: #2c2c2c;
+        box-shadow: 0 0 0 3px rgba(58, 58, 58, 0.15);
       }
 
       @media (max-width: 480px) {
-        .visit-time-options {
+        .option-cards {
           grid-template-columns: 1fr;
         }
-      }
-
-      .radio-option {
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-      }
-
-      .radio-option input[type="radio"] {
-        margin-right: 8px;
-      }
-
-      .radio-option label {
-        font-weight: 400;
-        margin-bottom: 0;
-        cursor: pointer;
-        font-size: 14px;
-        letter-spacing: 0.3px;
+        .option-cards.cols-3 {
+          grid-template-columns: 1fr;
+        }
       }
 
       .submit-btn {
@@ -411,8 +397,8 @@
         <div class="field-group">
           <label>ご来場時間 <span class="required">*</span></label>
           <p class="field-note" style="margin: 0 0 4px;">ご希望のご来場時間をお選びください。</p>
-          <div class="visit-time-options" role="radiogroup" aria-label="ご来場時間">
-            <label class="visit-time-option">
+          <div class="option-cards" role="radiogroup" aria-label="ご来場時間">
+            <label class="option-card">
               <input
                 type="radio"
                 name="entry.1513722889"
@@ -421,7 +407,7 @@
               />
               <span>12:00 - 13:00</span>
             </label>
-            <label class="visit-time-option">
+            <label class="option-card">
               <input
                 type="radio"
                 name="entry.1513722889"
@@ -430,7 +416,7 @@
               />
               <span>13:00 - 14:00</span>
             </label>
-            <label class="visit-time-option">
+            <label class="option-card">
               <input
                 type="radio"
                 name="entry.1513722889"
@@ -439,7 +425,7 @@
               />
               <span>15:00 - 16:00</span>
             </label>
-            <label class="visit-time-option">
+            <label class="option-card">
               <input
                 type="radio"
                 name="entry.1513722889"
@@ -536,37 +522,34 @@
 
         <div class="field-group">
           <label>ジュエリーのご購入予定 <span class="required">*</span></label>
-          <div class="radio-group">
-            <div class="radio-option">
+          <div class="option-cards cols-3" role="radiogroup" aria-label="ジュエリーのご購入予定">
+            <label class="option-card">
               <input
                 type="radio"
-                id="purchaseYes"
                 name="entry.1807178537"
                 value="はい"
                 required
               />
-              <label for="purchaseYes">はい</label>
-            </div>
-            <div class="radio-option">
+              <span>はい</span>
+            </label>
+            <label class="option-card">
               <input
                 type="radio"
-                id="purchaseConsidering"
                 name="entry.1807178537"
                 value="検討中"
                 required
               />
-              <label for="purchaseConsidering">検討中</label>
-            </div>
-            <div class="radio-option">
+              <span>検討中</span>
+            </label>
+            <label class="option-card">
               <input
                 type="radio"
-                id="purchaseUndecided"
                 name="entry.1807178537"
                 value="未定"
                 required
               />
-              <label for="purchaseUndecided">未定</label>
-            </div>
+              <span>未定</span>
+            </label>
           </div>
         </div>
 
