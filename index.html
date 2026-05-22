@@ -144,6 +144,38 @@
         margin-bottom: 0;
       }
 
+      .info-block p {
+        margin: 0 0 6px;
+      }
+
+      .info-block p:last-child {
+        margin: 0;
+      }
+
+      .info-block .venue-name {
+        font-weight: 600;
+        font-size: 16px;
+        color: #2c2c2c;
+        letter-spacing: 0.4px;
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .info-block .venue-name-jp {
+        font-size: 13px;
+        color: #555;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .info-block .event-date {
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c2c2c;
+        letter-spacing: 0.5px;
+        margin: 0;
+      }
+
       .info-block a {
         color: #8B4513;
         text-decoration: none;
@@ -357,13 +389,15 @@
     <div class="form-container">
       <h2>sonkyou <br />× <br />sou diamond</h2>
 
-      <div class="info-block" aria-labelledby="event-info-heading">
-        <h3 id="event-info-heading">イベントについて</h3>
-        <ul>
-          <li>当日は各時間になり次第、お申し込み順でのご案内・ご入場となります。</li>
-          <li>Vintage shopのお支払いは、現金またはPayPayとなります。</li>
-          <li>Vintage shopでのお買い物をご予定の方は、エコバッグのご持参をお願いいたします。</li>
-        </ul>
+      <div class="info-block" aria-labelledby="event-date-heading">
+        <h3 id="event-date-heading">イベント日程</h3>
+        <p class="event-date">6/20(土) 12:00〜19:00</p>
+      </div>
+
+      <div class="info-block" aria-labelledby="event-content-heading">
+        <h3 id="event-content-heading">イベント内容</h3>
+        <p>孫きょうデザインジュエリーを実際にご覧いただき、ご試着・ご注文いただけるイベントです。</p>
+        <p>当日は、孫きょうさまのVintage shop（フリーマーケット）もあわせて開催いたします。</p>
       </div>
 
       <form
@@ -373,6 +407,66 @@
         target="hidden_iframe"
         onsubmit="submitted=true"
       >
+        <div class="field-group">
+          <label>ご来場時間 <span class="required">*</span></label>
+          <p class="field-note" style="margin: 0 0 4px;">ご希望のご来場時間をお選びください。</p>
+          <div class="visit-time-options" role="radiogroup" aria-label="ご来場時間">
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="12:00 - 13:00"
+                required
+              />
+              <span>12:00 - 13:00</span>
+            </label>
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="13:00 - 14:00"
+                required
+              />
+              <span>13:00 - 14:00</span>
+            </label>
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="15:00 - 16:00"
+                required
+              />
+              <span>15:00 - 16:00</span>
+            </label>
+            <label class="visit-time-option">
+              <input
+                type="radio"
+                name="entry.1513722889"
+                value="16:00 - 17:00"
+                required
+              />
+              <span>16:00 - 17:00</span>
+            </label>
+          </div>
+          <p class="field-note">※17:00〜19:00については、ご予約なしでもご入場いただけます。</p>
+        </div>
+
+        <div class="info-block" aria-labelledby="venue-heading">
+          <h3 id="venue-heading">場所</h3>
+          <span class="venue-name">KYO OMOTESANDO</span>
+          <span class="venue-name-jp">キョウ表参道</span>
+          <p>〒150-0001<br />東京都渋谷区神宮前5-9-25 B1</p>
+        </div>
+
+        <div class="info-block" aria-labelledby="access-heading">
+          <h3 id="access-heading">アクセス</h3>
+          <ul>
+            <li>東京メトロ 表参道駅 徒歩5分</li>
+            <li>東京メトロ 明治神宮前駅 徒歩7分</li>
+            <li>JR 原宿駅 徒歩13分</li>
+          </ul>
+        </div>
+
         <div class="field-group">
           <label for="fullName"
             >お名前（フルネーム） <span class="required">*</span></label
@@ -419,50 +513,6 @@
             placeholder="回答を入力"
           />
           <p class="field-note">※同伴者が複数名いらっしゃる場合は、備考欄にご入力いただく形でお願いします。</p>
-        </div>
-
-        <div class="field-group">
-          <label>ご来場時間 <span class="required">*</span></label>
-          <p class="field-note" style="margin: 0 0 4px;">ご希望のご来場時間をお選びください。</p>
-          <div class="visit-time-options" role="radiogroup" aria-label="ご来場時間">
-            <label class="visit-time-option">
-              <input
-                type="radio"
-                name="entry.1513722889"
-                value="12:00 - 13:00"
-                required
-              />
-              <span>12:00 - 13:00</span>
-            </label>
-            <label class="visit-time-option">
-              <input
-                type="radio"
-                name="entry.1513722889"
-                value="13:00 - 14:00"
-                required
-              />
-              <span>13:00 - 14:00</span>
-            </label>
-            <label class="visit-time-option">
-              <input
-                type="radio"
-                name="entry.1513722889"
-                value="15:00 - 16:00"
-                required
-              />
-              <span>15:00 - 16:00</span>
-            </label>
-            <label class="visit-time-option">
-              <input
-                type="radio"
-                name="entry.1513722889"
-                value="16:00 - 17:00"
-                required
-              />
-              <span>16:00 - 17:00</span>
-            </label>
-          </div>
-          <p class="field-note">※17:00〜19:00については、ご予約なしでもご入場いただけます。</p>
         </div>
 
         <div class="field-group">
@@ -528,17 +578,26 @@
           ></textarea>
         </div>
 
+        <div class="info-block" aria-labelledby="event-notes-heading">
+          <h3 id="event-notes-heading">イベントについて</h3>
+          <ul>
+            <li>当日は各時間になり次第、お申し込み順でのご案内・ご入場となります。</li>
+            <li>Vintage shopのお支払いは、現金またはPayPayとなります。</li>
+            <li>Vintage shopでのお買い物をご予定の方は、エコバッグのご持参をお願いいたします。</li>
+          </ul>
+        </div>
+
+        <div class="contact-block">
+          <span class="contact-label">■イベントに関するお問い合わせ先</span>
+          <a href="mailto:info@soudiamond.com">info@soudiamond.com</a>
+        </div>
+
         <p class="closing-message">スタッフ一同、皆さまにお会いできますことを楽しみにしております。</p>
 
         <button type="submit" class="submit-btn" id="submitBtn">
           送信
         </button>
       </form>
-
-      <div class="contact-block">
-        <span class="contact-label">■イベントに関するお問い合わせ先</span>
-        <a href="mailto:info@soudiamond.com">info@soudiamond.com</a>
-      </div>
 
       <script type="text/javascript">
         let submitted = false;
